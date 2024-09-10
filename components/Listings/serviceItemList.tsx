@@ -5,8 +5,8 @@ import { Tables } from '@/types/Tables';
 import { Link } from 'expo-router';
 
 type ServiceListItemProps = {
-    service: Tables<'Services'>;
-}
+    service: Tables<'Services'> & { User_Business: Tables<'User_Business'> };
+  };
 
 export const defaultPizzaImage =
 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/default.png';
@@ -30,7 +30,7 @@ const ServiceItemList = ({ service }: ServiceListItemProps) => {
                     <Text style={{ fontFamily: 'mon-sb' }}>{service.duration || 0 / 20}</Text>
                   </View>
                 </View>
-                {/* <Text style={{ fontFamily: 'mon' }}>{item.User_Business?.business_name}</Text> */}
+                <Text style={{ fontFamily: 'mon' }}>{service.User_Business?.business_name}</Text>
                 <View style={{ flexDirection: 'row', gap: 4 }}>
                   <Text style={{ fontFamily: 'mon-sb' }}>Ghc {service.price}</Text>
                                   

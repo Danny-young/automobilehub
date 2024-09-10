@@ -31,7 +31,7 @@ export const useService = (id: number) => {
     return useQuery({
         queryKey: ['service', id],
         queryFn: async () => {
-          const { data, error } = await supabase.from('Services').select('*').eq('id', id).single();
+          const { data, error } = await supabase.from('Services').select('*, User_Business(*)').eq('id', id).single();
           if (error) {
             throw new Error(error.message);
           }

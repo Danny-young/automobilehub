@@ -2,36 +2,36 @@ import { View, Text, StyleSheet, SafeAreaView, ScrollView, TouchableOpacity } fr
 import React, { useRef, useState } from 'react'
 import { Link } from 'expo-router';
 import { TabBarIcon } from './navigation/TabBarIcon';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 
 
 const categories = [
   {
-    name:"Tiny homes",
-    icon: "home"
+    name:"All Service",
+    icon: "car-select"
   },
 
   {
-    name:"Cabins",
-    icon: "house-siding"
+    name:"Car wash",
+    icon: "car-wash"
   },
   {
-    name:"Trending",
-    icon: "local-fire-department"
+    name:"Repairs",
+    icon: "car-wrench"
   },
   {
-    name:"Play",
-    icon: "videogame-asset"
+    name:"Rental",
+    icon: "car-back"
   },
   
   {
-    name:"BeachFront",
-    icon: "beach-access"
+    name:"Accessories",
+    icon: "car-battery"
   },
   {
-    name:"Countryside",
-    icon: "nature-people"
+    name:"Emergency",
+    icon: "car-emergency"
   },
 ];
 
@@ -74,7 +74,7 @@ const scrollRef = useRef<ScrollView>(null);
         </Link>
         
         <TouchableOpacity style={styles.filterBtn}>
-        <TabBarIcon name={"options-outline"} />
+        <TabBarIcon name={"microphone"} />
         </TouchableOpacity>
         </View>
      
@@ -95,7 +95,7 @@ const scrollRef = useRef<ScrollView>(null);
               key={index}
               ref={(el) => {itemRef.current[index] = el}}
               style={activeIndex === index ? styles.categoryBtnActive : styles.categoriesBtn}>
-              <MaterialIcons size={24} name={item.icon as any} color={activeIndex === index ? 'blue': 'grey'}/>
+              <MaterialCommunityIcons size={24} name={item.icon as any} color={activeIndex === index ? 'blue': 'grey'}/>
               <Text 
               style={activeIndex === index ? styles.categoryTextActive: styles.categoryText}>{item.name}</Text>
             </TouchableOpacity>
@@ -110,6 +110,7 @@ const scrollRef = useRef<ScrollView>(null);
    container: {
      backgroundColor: '#fff',
      height:130,
+     
    },
    actionRow: {
      flexDirection: 'row',
