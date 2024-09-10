@@ -35,7 +35,10 @@ const Page = () => {
         password: password,
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase Error:', error); // Log the error
+        throw error;
+      }
 
       if (data && data.user) {
         const userId = data.user.id;
@@ -47,46 +50,37 @@ const Page = () => {
           .eq('id', userId)
           .single();
 
-        if (userError) throw userError;
+          if (userError) {
+            console.error('User Fetch Error:', userError); // Log the user fetch error
+            throw userError;
+          }
 
         // Store user info in AsyncStorage
         await AsyncStorage.setItem('userId', userId);
         await AsyncStorage.setItem('userType', userData.user_type || '');
+        console.log('User data stored:', userId, userData.user_type);
+
 
         // Redirect based on user type
-        if (userData.user_type === 'Car_Owner') {
-          router.replace('/(CarOwner)');
-        } else if (userData.user_type === 'Service_Provider') {
-          router.replace('/(ServiceProvider)');
-        }
+if (userData.user_type === 'Car_Owner') {
+    console.log('Navigating to Car Owner page');
+    router.replace('/(carowner)'); // Instead of '/(CarOwner)'
+
+  } else if (userData.user_type === 'Service_Provider') {
+    console.log('Navigating to Service Provider page');
+    router.replace('/(ServiceProvider)');
+  }
+         console.log(userId)
+         console.log(userData.user_type)
       }
     } catch (error: any) {
       Alert.alert('Login Error', error.message);
     } finally {
       setLoading(false);
     }
+   
   };
 
-//   const { startOAuthFlow: googleAuth } = useOAuth({ strategy: 'oauth_google' });
-//   const { startOAuthFlow: appleAuth } = useOAuth({ strategy: 'oauth_apple' });
-//   const { startOAuthFlow: facebookAuth } = useOAuth({ strategy: 'oauth_facebook' });
-
-//   const onSelectAuth = async (strategy: Strategy) => {
-//     const selectedAuth = {
-//       [Strategy.Google]: googleAuth,
-//       [Strategy.Apple]: appleAuth,
-//       [Strategy.Facebook]: facebookAuth,
-//     }[strategy];
-
-//     try {
-//       const { session, error } = await selectedAuth();
-//       if (error) throw error;
-//       // Handle successful OAuth login
-//       // You might want to fetch user details here if not done automatically
-//     } catch (error: any) {
-//       Alert.alert('OAuth Error', error.message);
-//     }
-//   };
 
   return (
     <View style={styles.container}>

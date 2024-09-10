@@ -3,8 +3,8 @@ import { defaultStyles } from '@/constants/Styles';
 import { supabase } from '@/lib/supabase';
 import { Session } from '@supabase/supabase-js';
 import { useAssets } from 'expo-asset';
-import { ResizeMode, Video } from 'expo-av';
-import { Link, Redirect } from 'expo-router';
+import { ResizeMode, Video } from 'expo-av'
+import { Link, Redirect, Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { opacity } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
@@ -16,6 +16,7 @@ export default function Auth() {
  
  
  return(
+  <Stack screenOptions={{ headerShown: false }}>
  <View style={styles.container}>
         
          
@@ -55,6 +56,7 @@ export default function Auth() {
       </View>
       {/* </SignedOut> */}
     </View>
+    </Stack>
  );
 }
 
