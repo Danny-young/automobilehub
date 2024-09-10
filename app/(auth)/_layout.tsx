@@ -44,9 +44,9 @@ export default function AuthLayout() {
 
   if (isAuthenticated && userType) {
     if (userType === 'Car_Owner') {
-      return <Redirect href="/(CarOwner)/" />;
+      return <Redirect href="/(carowner)" />;
     } else if (userType === 'Service_Provider') {
-      return <Redirect href="/(ServiceProvider)/" />;
+      return <Redirect href="/(serviceProvider)" />;
     }
   }
 

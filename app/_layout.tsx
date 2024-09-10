@@ -36,7 +36,7 @@ import AuthProvider from '@/providers/AuthProvider'
             <Stack.Screen name="index" options={{ headerShown: false }} />
             <Stack.Screen name="(auth)" options={{ headerShown: false }} />
             <Stack.Screen name="(carowner)" options={{ headerShown: false,  }} />
-            <Stack.Screen name="(ServiceProvider)" options={{ headerShown: false }} />
+            <Stack.Screen name="(serviceProvider)" options={{ headerShown: false }} />
             <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="listing" options={{ headerShown: false }} />

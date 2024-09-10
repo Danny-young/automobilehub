@@ -64,11 +64,11 @@ const Page = () => {
         // Redirect based on user type
 if (userData.user_type === 'Car_Owner') {
     console.log('Navigating to Car Owner page');
-    router.replace('/(carowner)'); // Instead of '/(CarOwner)'
+    router.replace('/(carowner)/'); // Instead of '/(CarOwner)'
 
   } else if (userData.user_type === 'Service_Provider') {
     console.log('Navigating to Service Provider page');
-    router.replace('/(ServiceProvider)');
+    router.replace('/(serviceProvider)');
   }
          console.log(userId)
          console.log(userData.user_type)
