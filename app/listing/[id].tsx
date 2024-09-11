@@ -148,7 +148,7 @@ const id = parseFloat(Array.isArray(idString) ? idString[0] : idString);
 
             <View>
               <Text style={{ fontWeight: '500', fontSize: 16 }}>Service by {services.User_Business?.business_name}</Text>
-              <Text>Created since {createdAtDate}</Text>
+              <Text>Member since {createdAtDate}</Text>
             </View>
           </View>
 
@@ -166,7 +166,7 @@ const id = parseFloat(Array.isArray(idString) ? idString[0] : idString);
             </TouchableOpacity>
 
           <TouchableOpacity style={[defaultStyles.btn, { paddingRight: 20, paddingLeft: 20 }]}>
-            <Text style={defaultStyles.btnText}>Reserve</Text>
+            <Text style={defaultStyles.btnText}>Get Location</Text>
           </TouchableOpacity>
         </View>
       </Animated.View>

@@ -2,7 +2,7 @@ import Colors from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useFonts } from 'expo-font';
-import { Link, router, Stack, Redirect, useSegments, useRouter, Slot } from 'expo-router';
+import { Link, Stack, useRouter, Slot, Redirect } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
@@ -11,10 +11,8 @@ import { useAuth } from '@/providers/AuthProvider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Spinner from 'react-native-loading-spinner-overlay';
 
-
-
 export default function AuthLayout() {
-  const { isAuthenticated} = useAuth();
+  const { isAuthenticated } = useAuth();
   const [loading, setLoading] = useState(true);
   const [userType, setUserType] = useState<string | null>(null);
   const router = useRouter();
@@ -50,10 +48,12 @@ export default function AuthLayout() {
     }
   }
 
-return <Stack>
-<Stack.Screen name="index" options={{ headerShown: false }} />
-<Stack.Screen name="login" options={{ headerShown: false }} />
-<Stack.Screen name="signup" options={{ headerShown: false }} />
-{/* <Stack.Screen name="+not-found" /> */}
-</Stack>
+  return (
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="login" options={{ headerShown: false }} />
+      <Stack.Screen name="signup" options={{ headerShown: false }} />
+     
+    </Stack>
+  );
 }

@@ -4,9 +4,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { Tables } from '@/types/Tables';
 import { Link } from 'expo-router';
 
-type ServiceListItemProps = {
-    service: Tables<'Services'> & { User_Business: Tables<'User_Business'> };
-  };
+interface ServiceListItemProps {
+    service: Tables<'Services'> & {
+      User_Business?: Tables<'User_Business'>;
+    };
+  }
 
 export const defaultPizzaImage =
 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/default.png';
@@ -32,7 +34,7 @@ const ServiceItemList = ({ service }: ServiceListItemProps) => {
                 </View>
                 <Text style={{ fontFamily: 'mon' }}>{service.User_Business?.business_name}</Text>
                 <View style={{ flexDirection: 'row', gap: 4 }}>
-                  <Text style={{ fontFamily: 'mon-sb' }}>Ghc {service.price}</Text>
+                  <Text style={{ fontFamily: 'mon-sb' }}>{service.User_Business?.address}</Text>
                                   
                 </View>
               </View>

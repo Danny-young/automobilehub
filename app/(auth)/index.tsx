@@ -16,7 +16,7 @@ export default function Auth() {
  
  
  return(
-  <Stack screenOptions={{ headerShown: false }}>
+  
  <View style={styles.container}>
         
          
@@ -56,7 +56,7 @@ export default function Auth() {
       </View>
       {/* </SignedOut> */}
     </View>
-    </Stack>
+ 
  );
 }
 

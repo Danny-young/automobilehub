@@ -7,8 +7,9 @@ export default function Explore() {
     <View style={styles.container}>
       <MapView style={styles.map}
       provider={PROVIDER_GOOGLE} 
-      // showsUserLocation={true}
-      /> 
+      showsUserLocation={true}
+      showsMyLocationButton={true}
+ /> 
     </View>
   );
 }

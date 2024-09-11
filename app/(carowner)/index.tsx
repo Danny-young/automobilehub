@@ -38,12 +38,26 @@ export default function CarOwnerHome() {
     <View style={[styles.container, { paddingTop: top }]}>
       <ExploreHeader onCategoryChanged={onDataChanged} />
       <FlatList
-        data={services}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <Listing service={item}/>
-        )}
-      />
+  data={services}
+  keyExtractor={(item) => item.id.toString()}
+  renderItem={({ item }) => (
+    <Listing
+      service={{
+        ...item,
+        User_Business: item.User_Business ? item.User_Business : {
+          address: null,
+          business_name: null,
+          coordinates: {},
+          created_at: '',
+          description: null,
+          id: 0,
+          owner: null,
+          provider_email: null,
+          telephone: null
+        }      }}
+    />
+  )}
+/>
     </View>
   );
 }

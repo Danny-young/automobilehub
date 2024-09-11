@@ -17,7 +17,7 @@ export default  function profile() {
       console.error('Error signing out:', error.message);
     } else {
       // Optionally, navigate the user to a login or welcome screen
-      <Redirect href='/(auth)/'/>
+      <Redirect href='/(auth)'/>
     }
   };
 
